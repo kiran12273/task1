@@ -1,0 +1,25 @@
+<project>
+
+    <target name="clean">
+        <delete dir="/home/ec2-user/my_project/build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="/home/ec2-user/my_project/build/classes"/>
+        <javac srcdir="/home/ec2-user/my_project/oata" destdir="/home/ec2-user/my_project/build/classes"/>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="/home/ec2-user/my_project/build/jar"/>
+        <jar destfile="/home/ec2-user/my_project/build/jar/HelloWorld.jar" basedir="/home/ec2-user/my_project/build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="oata.HelloWorld"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="/home/ec2-user/my_project/build/jar/HelloWorld.jar" fork="true"/>
+    </target>
+
+</project>
